@@ -1,0 +1,814 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Test Cases</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2d2effbb-5b90-4774-ae5f-5486e6df100d" class="page sans"><header><h1 class="page-title">Test Cases</h1></header><div class="page-body"><p id="bc052882-c449-4a0b-9295-6fce6e2aef54" class=""><strong>More than 200 custom test cases</strong></p><ul id="33e93efa-b576-447d-b057-87fce66b199a" class="toggle"><li><details open=""><summary><strong>Recon Phase</strong></summary><ul id="f177773d-ac16-40a5-a69b-cafd090656f4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Identify web server, technologies and database</span></li></ul><ul id="c81e9b7b-b9be-4367-8af9-75beefd49780" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Subsidiary and Acquisition Enumeration</span></li></ul><ul id="16ab780c-2d73-4db2-97cf-16bea8ee0450" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Reverse Lookup</span></li></ul><ul id="2f18ded0-6151-474b-bab8-bd060a774fc9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">ASN &amp; IP Space Enumeration and Service Enumeration</span></li></ul><ul id="549874e7-6605-4926-bd8b-358ecf21d39d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Google Dorking</span></li></ul><ul id="21be6aae-857a-43f2-8451-ac07084ca1d0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Github Recon</span></li></ul><ul id="1756c425-0eff-4ee4-ba10-e07c57f9b391" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Directory Enumeration</span></li></ul><ul id="e043ef47-57d2-469b-ad5f-c8f7c3269227" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">IP Range Enumeration</span></li></ul><ul id="557839b3-5b79-462f-afd6-94f79907c0c2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">JS Files Analysis</span></li></ul><ul id="1243f1a0-efa0-4bce-8985-e6acfcaa109a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Subdomain Enumeration and Bruteforcing</span></li></ul><ul id="b5ec2304-bf25-4ba3-b5d0-3c92d03ade09" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Subdomain Takeover</span></li></ul><ul id="ba6c66a1-012a-4acc-bad8-5bf417abb680" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Parameter Fuzzing</span></li></ul><ul id="318f3089-d9d8-4158-ae50-d24e0a936555" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Port Scanning</span></li></ul><ul id="602a66aa-688c-4636-8742-34ea6ead6476" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Template-Based Scanning(Nuclei)</span></li></ul><ul id="506343a7-45cf-4986-b32d-3dea210163ae" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Wayback History</span></li></ul><ul id="f7e8175f-090d-4c73-933c-c5762410681c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Broken Link Hijacking</span></li></ul><ul id="f0dc186a-bdc3-46cb-9fa8-d18c688a1f57" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Internet Search Engine Discovery</span></li></ul><ul id="c1921173-987d-445a-865b-15925c34635e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Misconfigured Cloud Storage</span></li></ul></details></li></ul><ul id="62658186-0b9b-4dab-8956-6bd57b3d51aa" class="toggle"><li><details open=""><summary><strong>Registration Feature Testing</strong></summary><ul id="50fdc069-a62b-4174-9259-fce89f424b01" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for duplicate registration/Overwrite existing user</span></li></ul><ul id="be0e02fb-e73c-4537-85d1-8b55b5f11c2a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for weak password policy</span></li></ul><ul id="2830baf5-0771-4543-adc2-04cfb48a90bf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for reuse existing usernames</span></li></ul><ul id="7732e85b-9aa1-42ea-b113-a5366b3ca1ba" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for insufficient email verification process</span></li></ul><ul id="4d4029f0-edd5-4ea8-89dd-2fa89db3ec07" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Weak registration implementation-Allows disposable email addresses</span></li></ul><ul id="440a098c-ad53-4a13-a594-2d9067f714f2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Weak registration implementation-Over HTTP</span></li></ul><ul id="b2c62a0c-7f77-42fd-b699-3b50ed983233" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Overwrite default web application pages by specially crafted username registrations. =&gt; After registration, does your profile link appears something as <a href="http://www.chintan.com/chintan">www.tushar.com/</a>tushar?</span></li></ul><p id="076c8138-8166-465e-9c1f-9454a44c550d" class="">a. If so, enumerate default folders of web application such as /images, /contact, /portfolio </p><p id="ed27e41a-8929-4bd3-813f-c9b92b150c16" class="">b. Do a registration using the username such as images, contact, portfolio </p><p id="f7fb7876-f3f9-466b-82b8-086aaccf6bd5" class="">c. Check if those default folders have been overwritten by your profile link or not.&quot;</p></details></li></ul><ul id="69a8195a-91b8-4f71-9e71-2921e27d80c5" class="toggle"><li><details open=""><summary><strong>Session Management Testing</strong></summary><ul id="10f220e6-be8e-424c-8991-be105b0174e8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Identify actual session cookie out of bulk cookies in the application</span></li></ul><ul id="e8228241-7c8f-4ad7-9adb-3073db907149" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Decode cookies using some standard decoding algorithms such as Base64, hex, URL, etc</span></li></ul><ul id="d609d663-9e3a-4bda-8af3-2ca9935bc6b3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Modify cookie.session token value by 1 bit/byte. Then resubmit and do the same for all tokens. Reduce the amount of work you need to perform in order to identify which part of the token is actually being used and which is not</span></li></ul><ul id="44a899cc-5c19-4676-951f-406919f34cc0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">If self-registration is available and you can choose your username, log in with a series of similar usernames containing small variations between them, such as A, AA, AAA, AAAA, AAAB, AAAC, AABA, and so on. If another user-specific data is submitted at login or stored in user profiles (such as an email address)</span></li></ul><ul id="42322f29-7bc7-4ef2-8ca2-619398100537" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for session cookies and cookie expiration date/time</span></li></ul><ul id="3f5a7e0e-97dc-430e-bb6c-fdd95ee5c189" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Identify cookie domain scope</span></li></ul><ul id="c72faa31-8af4-4c5f-8462-44d9112e8d96" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for HttpOnly flag in cookie</span></li></ul><ul id="58e011c6-038c-4d28-890c-77fd18728b84" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for Secure flag in cookie if the application is over SSL</span></li></ul><ul id="d2617951-fcf2-42bf-b9b2-0153de43124b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for session fixation i.e. value of session cookie before and after authentication</span></li></ul><ul id="6d9fe761-bc2d-44fd-a621-7036d564c1c0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Replay the session cookie from a different effective IP address or system to check whether the server maintains the state of the machine or not</span></li></ul><ul id="33e0eaa3-295a-400d-a37c-8ca6e9ac6085" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for concurrent login through different machine/IP</span></li></ul><ul id="fd58c070-9db0-4a17-8f08-f9aa179412a6" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if any user pertaining information is stored in cookie value or not If yes, tamper it with other user&#x27;s data</span></li></ul><ul id="7825f758-461a-451f-a7db-7774e3b9e5d5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Failure to Invalidate Session on (Email Change,2FA Activation)</span></li></ul></details></li></ul><ul id="d2dea33c-1ef9-42fa-ba17-793a0ae3d060" class="toggle"><li><details open=""><summary><strong>Authentication Testing</strong></summary><ul id="a5d492cb-acf7-40eb-bf7c-1a91aff66157" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Username enumeration</span></li></ul><ul id="a5438dbb-8b23-46ec-a744-f610a1eb0ae0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypass authentication using various SQL Injections on username and password field</span></li></ul><ul id="52d8d6a4-31d2-4345-8c87-59783284ce57" class="toggle"><li><details open=""><summary>Lack of password confirmation on</summary><ul id="e6e4d604-12d8-40cb-afb4-656d42da12e5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Change email address</span></li></ul><ul id="63e11b11-2f2b-4670-92b9-441ed077cfdb" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Change password</span></li></ul><ul id="d1ab7664-adf7-422d-b8bb-e0f840da68a9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Manage 2FA</span></li></ul></details></li></ul><ul id="b3978494-e1ad-4c82-a7d8-7203f254b704" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Is it possible to use resources without authentication? Access violation</span></li></ul><ul id="1b57c71b-56a5-45b5-903c-f2c2ac8db591" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user credentials are transmitted over SSL or not</span></li></ul><ul id="88e3c224-367d-44c1-af91-3050bc06b255" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Weak login function HTTP and HTTPS both are available</span></li></ul><ul id="2e5a49c2-9cde-4a0b-b3ac-8c71197ceb25" class="toggle"><li><details open=""><summary>Test user account lockout mechanism on brute force attack</summary><p id="b8ebf652-f56b-4167-aa0d-ed531b046f09" class="">Variation : If server blocks instant user requests, then try with time throttle option from intruder and repeat the process again.</p><ul id="7907d34e-12a1-4230-ae1d-845f99a1b05e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypass rate limiting by tampering user agent to Mobile User agent</span></li></ul><ul id="b5b4a640-26a7-4064-9a00-b858d3863c66" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypass rate limiting by tampering user agent to Anonymous user agent</span></li></ul><ul id="b07a5e66-d481-48d0-92c1-680c33fc79f2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypass rate liniting by using null byte</span></li></ul></details></li></ul><ul id="e46f2d4b-cbd4-4dcb-a46e-9428109e85f0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Create a password wordlist using cewl command</span></li></ul><ul id="4c5bb9ca-cf9b-447a-b716-b7fed2223503" class="toggle"><li><details open=""><summary>Test Oauth login functionality</summary><ul id="d436894e-2c53-40d5-8986-82f765d65a08" class="toggle"><li><details open=""><summary>OAuth Roles</summary><ul id="f6515abc-c6fd-4634-bf07-60dfa6d8dac6" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Resource Owner → User</span></li></ul><ul id="89133672-40db-4f66-87c7-bfd410fa1353" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Resource Server → Twitter</span></li></ul><ul id="f6856828-7a1f-4591-ad76-91f4dcd32e2f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Client Application → <a href="http://twitterdeck.com/">Twitterdeck.com</a></span></li></ul><ul id="42f0c95d-f265-4fcb-bfd2-3249985d10ec" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Authorization Server → Twitter</span></li></ul><ul id="52edf170-fd96-45b3-b08b-ff00b994abac" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">client_id → Twitterdeck ID (This is a public, non-secret unique identifier_</span></li></ul><ul id="b3d22423-6d0a-452c-bddc-860afb3a569e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">client_secret → Secret Token known to the Twitter and Twitterdeck to generate access_tokens</span></li></ul><ul id="5f94e4a5-f489-490e-a739-36e710d62017" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">response_type → Defines the token type e.g (code, token, etc.)</span></li></ul><ul id="0cb01e0c-022c-4b8d-a59c-f0e5b4e6f1e5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">scope → The requested level of access Twitterdeck wants</span></li></ul><ul id="ea2ffa09-3c17-4df7-a548-b29bd1308b72" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">redirect_uri → The URL user is redirected to after the authorization is complete</span></li></ul><ul id="92f804f5-1e3e-4a6b-9d40-290daa6f765b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">state → Main CSRF protection in OAuth can persist data between the user being directed to the authorization server and back again</span></li></ul><ul id="ad4c7832-bd9e-4743-b58f-27837141f8a1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">grant_type → Defines the grant_type and the returned token type</span></li></ul><ul id="497399f8-da98-4460-8798-2f3f93fa748a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">code → The authorization code twitter generated, will be like ?code= , the code is used with client_id and client_secret to fetch an access_token</span></li></ul><ul id="923e1dc5-c822-4804-9031-a666c4ba2388" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">access_token → The token twitterdeck uses to make API requests on behalf of the user</span></li></ul><ul id="8ec041ce-6452-433a-aee7-02b6bd5f5c4e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">refresh_token → Allows an application to obtain a new access_token without prompting the user</span></li></ul></details></li></ul><ul id="c9b791c1-724e-4e54-bdb4-78acdea206fa" class="toggle"><li><details open=""><summary>Code Flaws</summary><ul id="5c9fca3c-eb9b-43d4-bbff-ce126420cc63" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Re-Using the code</span></li></ul><ul id="31eed0b9-b567-4086-aa1e-933fa1af6f2c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Code Predict/Bruteforce and Rate-limit</span></li></ul><ul id="a8075320-1aad-40ba-b15b-3d0de7dabc6e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Is the code for application X valid for application Y?</span></li></ul></details></li></ul><ul id="89e9d610-fe8d-4c6c-bf11-01cdb3ebae22" class="toggle"><li><details open=""><summary>Redirect_uri Flaws</summary><ul id="4e22064e-75d5-4804-8ff8-84a6a671b96f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">URL isn&#x27;t validated at all: ?redirect_uri=https://attacker.com</span></li></ul><ul id="3544533c-1039-463b-a77d-5c8686344308" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Subdomains allowed (Subdomain Takeover or Open redirect on those subdomains): ?redirect_uri=https://sub.twitterdeck.com</span></li></ul><ul id="81769335-cd46-4a3d-81c9-a39e0ec54363" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Host is validated, path isn&#x27;t Chain open redirect): ?redirect_uri=https://twitterdeck.com/callback?redirectUrl=https://evil.com</span></li></ul><ul id="3ad97c28-4ebf-4c67-809c-ea93f795df3a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Host is validated, path isn&#x27;t (Referer leakages): Include external content on HTML page and leak code via Referer</span></li></ul><ul id="20a34525-1837-4a8e-9c5c-dc49a4d8ced3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Weak Regexes</span></li></ul><ul id="03f1594b-ea71-4ec4-ba34-4bd5a5d418d2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bruteforcing the URL encoded chars after host: redirect_uri=https://twitterdeck.com§FUZZ§</span></li></ul><ul id="9aabae0e-a725-44bd-aa88-df4fef1327f4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bruteforcing the keywords whitelist after host (or on any whitelist open redirect filter): ?redirect_uri=https://§FUZZ§.com</span></li></ul><ul id="cd9067f6-eec6-4a1d-ba6b-06659df39680" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">URI validation in place: use typical open redirect payloads</span></li></ul></details></li></ul><ul id="f489c106-69fa-48b8-9086-dd3759264c8a" class="toggle"><li><details open=""><summary>State Flaws</summary><ul id="6e40b86f-f355-4b32-9e53-28850acaae3f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Missing State parameter? (CSRF)</span></li></ul><ul id="96f376df-efdb-4e7e-9862-042be855b290" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Predictable State parameter?</span></li></ul><ul id="08601f71-ab96-43a5-953a-af8846e9929d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Is State parameter being verified?</span></li></ul></details></li></ul><ul id="16392e03-01fc-402d-9e95-df338d7115ce" class="toggle"><li><details open=""><summary>Misc</summary><ul id="724f87f7-7015-42ba-a99e-0fd736b1a33e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Is client_secret validated?</span></li></ul><ul id="e16e9cd8-64d4-4520-961e-6a6755873ec2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Pre ATO using facebook phone-number signup</span></li></ul><ul id="bfea8407-2f88-467f-9ea1-f45f5715325c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">No email validation Pre ATO</span></li></ul></details></li></ul></details></li></ul><ul id="3db14fd3-1fec-4a03-aaa9-0d7ac1900679" class="toggle"><li><details open=""><summary>Test 2FA Misconfiguration</summary><ul id="ee096cf0-a102-427b-848c-1ca58c0de8ab" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Response Manipulation</span></li></ul><ul id="06add784-51de-4842-96aa-536599facdb1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Status Code</span></li></ul><ul id="67a32de0-a7c3-43d5-b8ca-b6f7997d6a74" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Manipulation</span></li></ul><ul id="1c39102b-6fd7-415a-9048-b09081cccd5e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">2FA Code Leakage in Response</span></li></ul><ul id="34427ed0-d638-41fa-841d-c0503f1437b9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">2FA Code Reusability</span></li></ul><ul id="e6f201de-530d-4239-8a1e-42f5330b6d96" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Lack of Brute-Force Protection</span></li></ul><ul id="f66933f2-25ff-4eeb-ad68-f2a24e646b90" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Missing 2FA Code Integrity Validation</span></li></ul><ul id="4613cb01-aea6-4419-b85f-3c12888f42fa" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">With null or 000000</span></li></ul></details></li></ul></details></li></ul><ul id="c12144dd-c84b-4f5a-b2af-e4b6e0b0cc22" class="toggle"><li><details open=""><summary><strong>My Account (Post Login) Testing</strong></summary><ul id="d2b5d905-2c05-43af-8b9e-da7d09c1295b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Find parameter which uses active account user id. Try to tamper it in order to change the details of the other accounts</span></li></ul><ul id="c761d5d7-3a31-4417-a901-30ddb5fc536f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Create a list of features that are pertaining to a user account only. Change Email Change Password -Change account details (Name, Number, Address, etc.) Try CSRF</span></li></ul><ul id="adaad8a2-45ac-4da0-9a40-f2617acb27c8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Post login change email id and update with any existing email id. Check if its getting validated on server side or not. Does the application send any new email confirmation link to a new user or not? What if a user does not confirm the link in some time frame?</span></li></ul><ul id="46a3192f-e25e-471c-a615-bdbc828bcb7a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Open profile picture in a new tab and check the URL. Find email id/user id info. EXIF Geolocation Data Not Stripped From Uploaded Images.</span></li></ul><ul id="20e45287-431b-4a07-aff4-5814bda37c37" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check account deletion option if application provides it and confirm that via forgot password feature</span></li></ul><ul id="f8c2fd63-c451-43b3-a1ee-d8ff7ad9307a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Change email id, account id, user id parameter and try to brute force other user&#x27;s password</span></li></ul><ul id="eada0ead-d228-400f-b6d2-4b29403244ca" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check whether application re authenticates for performing sensitive operation for post authentication features</span></li></ul></details></li></ul><ul id="4e9eb64e-a587-4c63-818b-eb09233d1646" class="toggle"><li><details open=""><summary><strong>Forgot Password Testing</strong></summary><ul id="812c27fa-e262-4c19-88a3-9c45bf16f94b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Failure to invalidate session on Logout and Password reset</span></li></ul><ul id="5a351e1c-ae5f-4e05-9354-37cc98ffac12" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if forget password reset link/code uniqueness</span></li></ul><ul id="a64925f4-c8ef-41b5-a245-a746fc4edb4e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if reset link does get expire or not if its not used by the user for certain amount of time</span></li></ul><ul id="4d4e1026-cad7-4e6b-8e1d-b40b781cc248" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Find user account identification parameter and tamper Id or parameter value to change other user&#x27;s password</span></li></ul><ul id="89438214-3592-4f33-b7ad-7fc04c0daa39" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for weak password policy</span></li></ul><ul id="1760b58f-c2a9-4fb8-826f-c0ed5bd9ce5d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Weak password reset implementation Token is not invalidated after use</span></li></ul><ul id="bc49cee2-72af-481e-8857-f2ea83f44676" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">If reset link has another param such as date and time, then. Change date and time value in order to make active &amp; valid reset link</span></li></ul><ul id="b0c5cfb3-4070-4dc0-bfff-68198026a793" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if security questions are asked? How many guesses allowed? --&gt; Lockout policy maintained or not?</span></li></ul><ul id="9c759c81-1d70-4877-9830-ed630acf00d7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Add only spaces in new password and confirmed password. Then Hit enter and see the result</span></li></ul><ul id="bc0f97d2-4240-4410-bdce-5bec74ccda37" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Does it display old password on the same page after completion of forget password formality?</span></li></ul><ul id="4e95d420-358c-4390-9f99-80eca614c589" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Ask for two password reset link and use the older one from user&#x27;s email</span></li></ul><ul id="dcca4238-c103-4ea2-82c4-c5a2f5c67c3c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if active session gets destroyed upon changing the password or not?</span></li></ul><ul id="d56f35e3-fec7-4e10-8c77-1a4ee1008e45" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Weak password reset implementation Password reset token sent over HTTP</span></li></ul><ul id="b0ee035b-de36-4e58-879c-2455ff8b037e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Send continuous forget password requests so that it may send sequential tokens</span></li></ul></details></li></ul><ul id="dc626e41-6f9e-4a14-abaa-dcbae406ce14" class="toggle"><li><details open=""><summary><strong>Contact Us Form Testing</strong></summary><ul id="d7695d5f-0609-4133-8fc3-f359a10c8e4b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Is CAPTCHA implemented on contact us form in order to restrict email flooding attacks?</span></li></ul><ul id="a8f66e04-b70a-484c-b60a-d93c13e99132" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Does it allow to upload file on the server?</span></li></ul><ul id="43dd911b-81ec-4856-9ab8-ae8a4cba2c25" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Blind XSS</span></li></ul></details></li></ul><ul id="e6671412-4c8b-491a-86c2-d65b74141c07" class="toggle"><li><details open=""><summary><strong>Product Purchase Testing</strong></summary><ul id="146c754d-f4ce-4284-ac3e-16095d364f0c" class="toggle"><li><details open=""><summary>Buy Now</summary><ul id="88a14d24-2eb3-42df-b437-2524e34b1b53" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Tamper product ID to purchase other high valued product with low prize</span></li></ul><ul id="81eb10ff-8760-48c0-ae1a-824d1383ea48" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Tamper product data in order to increase the number of product with the same prize</span></li></ul></details></li></ul><ul id="f60d3ea2-01ad-4a6c-a469-e6e8781a32d8" class="toggle"><li><details open=""><summary>Gift/Voucher</summary><ul id="dc69b1b2-949d-4eb6-9dfb-519e87209faf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Tamper gift/voucher count in the request (if any) to increase/decrease the number of vouchers/gifts to be used</span></li></ul><ul id="45677a2b-ced2-4494-a239-dcadd13b59fb" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Tamper gift/voucher value to increase/decrease the value of the voucher in terms of money. (e.g. $100 is given as a voucher, tamper value to increase, decrease money)</span></li></ul><ul id="6ef78ca3-e997-4c08-a2d2-5536e9b14d69" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Reuse gift/voucher by using old gift values in parameter tampering</span></li></ul><ul id="2c505f95-23e4-4122-ad72-d809ca75509c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check the uniqueness of gift/voucher parameter and try guessing other gift/voucher code</span></li></ul><ul id="b95d32b7-3333-4020-a25b-e65cc8d4f415" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Use parameter pollution technique to add the same voucher twice by adding same parameter name and value again with &amp; in the BurpSuite request</span></li></ul></details></li></ul><ul id="cff7add2-fbb8-4161-aff8-75c5ea6157d6" class="toggle"><li><details open=""><summary>Add/Delete Product from Cart</summary><ul id="8b3cc629-3fec-4c35-a805-2cfd6b862d8e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Tamper user id to delete products from other user&#x27;s cart</span></li></ul><ul id="1546a12a-5985-4df6-8fbf-3b96c31e373c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Tamper cart id to add/delete products from other user&#x27;s cart</span></li></ul><ul id="24ae62c6-1777-4d9d-ae0d-675ecc9f8bce" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Identify cart id/user id for cart feature to view the added items from other user&#x27;s account</span></li></ul></details></li></ul><ul id="cdc3fb2b-e823-4c1d-97c6-f6385432fabf" class="toggle"><li><details open=""><summary>Address</summary><ul id="69cbf30c-7551-48b2-aebc-418f105970eb" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Tamper BurpSuite request to change other user&#x27;s shipping address to yours</span></li></ul><ul id="08cf0bc6-7b38-4218-9976-8e432cca8581" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try stored XSS by adding XSS vector on shipping address</span></li></ul><ul id="3da05396-ae5a-4347-9f41-123a0bd5fdf6" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Use parameter pollution technique to add two shipping address instead of one trying to manipulate application to send same item on two shipping address</span></li></ul></details></li></ul><ul id="5b46676a-71c2-4e5f-804c-2e920632b542" class="toggle"><li><details open=""><summary>Place Order</summary><ul id="43a4185b-8782-4059-8f56-a1389a7f3801" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Tamper payment options parameter to change the payment method. E.g. Consider some items cannot be ordered for cash on delivery but tampering request parameters from debit/credit/PayPal/net banking option to cash on delivery may allow you to
+place order for that particular item</span></li></ul><ul id="4d232532-011c-4e5f-9c40-9ce15ceb2604" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Tamper the amount value for payment manipulation in each main and sub requests and responses</span></li></ul><ul id="e0796f21-8285-4bef-8005-c69139687ba9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if CVV is going in cleartext or not</span></li></ul><ul id="36359bff-9fac-4519-a46e-778100162dcc" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if the application itself processes your card details and then performs a transaction or it calls any third-party payment processing company to perform a transaction</span></li></ul></details></li></ul><ul id="18cc8c8c-71c7-4fea-9159-27b74fa539a1" class="toggle"><li><details open=""><summary>Track Order</summary><ul id="219f6136-702a-4a26-aa34-a6dd5fba8aac" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Track other user&#x27;s order by guessing order tracking number</span></li></ul><ul id="50315069-3134-48ad-a292-e6c1a9dfab7b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Brute force tracking number prefix or suffix to track mass orders for other users</span></li></ul></details></li></ul><ul id="be4bda80-7b7c-49c6-b03c-00aa3f65d3be" class="toggle"><li><details open=""><summary>Wish list page testing</summary><ul id="8a1b9a89-939a-4c83-8b98-95bb9ca66f00" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if a user A can add/remote products in Wishlist of other user B’s account</span></li></ul><ul id="dc03bdaa-7a77-4748-9fb6-d229cd8ff2bf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if a user A can add products into user B’s cart from his/her (user A’s) Wishlist section.</span></li></ul></details></li></ul><ul id="31c309cc-5b8e-4e96-835f-d3189de713a6" class="toggle"><li><details open=""><summary>Post product purchase testing</summary><ul id="a21e5923-a889-430d-b3ee-95a205dc37c3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user A can cancel orders for user B’s purchase</span></li></ul><ul id="1bc0761e-ae3a-4a03-88c4-886bd0ec27f3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user A can view/check orders already placed by user B</span></li></ul><ul id="faa5a7af-ac54-48f8-8f35-da42d751f42c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user A can modify the shipping address of placed order by user B</span></li></ul></details></li></ul><ul id="9ff3e418-554a-4469-b7e9-e809fbb3f348" class="toggle"><li><details open=""><summary>Out of band testing</summary><ul id="73623597-4b89-4171-a4f6-5d99a3a666b7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Can user order product which is out of stock?</span></li></ul></details></li></ul></details></li></ul><ul id="1bc48335-f1ca-4354-b677-305e457201cb" class="toggle"><li><details open=""><summary><strong>Banking Application Testing</strong></summary><ul id="dc2f7b47-dbe5-4b04-84f7-f543cd019bfb" class="toggle"><li><details open=""><summary>Billing Activity</summary><ul id="ceb715ac-a7e5-47cc-b1a9-6fe14eb84938" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user &#x27;A&#x27; can view the account statement for user &#x27;B&#x27;</span></li></ul><ul id="bd4111d4-5219-44f4-be09-f0a3a6ad60c8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user &#x27;A&#x27; can view the transaction report for user &#x27;B&#x27;</span></li></ul><ul id="31abd036-530c-4387-9cf0-664d0324ade3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user &#x27;A&#x27; can view the summary report for user &#x27;B&#x27;</span></li></ul><ul id="cf96eeb4-8f24-4d6d-9469-e7b67db95838" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user &#x27;A&#x27; can register for monthly/weekly account statement via email behalf of user &#x27;B&#x27;</span></li></ul><ul id="6e385ed1-2134-4a33-b7ac-9435e3a9031f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user &#x27;A&#x27; can update the existing email id of user &#x27;B&#x27; in order to retrieve monthly/weekly account summary</span></li></ul></details></li></ul><ul id="ce8c792d-9814-4629-a984-8896d973a721" class="toggle"><li><details open=""><summary>Deposit/Loan/Linked/External Account Checking</summary><ul id="a7a115e4-c506-47d6-84f4-705643e32bfd" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user &#x27;A&#x27; can view the deposit account summary of user &#x27;B&#x27;</span></li></ul><ul id="e64b738a-0265-4697-bf53-2eff4587b9c6" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for account balance tampering for Deposit accounts</span></li></ul></details></li></ul><ul id="9f435001-ff1d-48da-9c45-86fca80d0124" class="toggle"><li><details open=""><summary>Tax Deduction Inquiry Testing</summary><ul id="37e2c8bb-bb2c-4183-a3ad-c3b9db3a3e3b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user &#x27;A&#x27; with it&#x27;s customer id &#x27;a&#x27; can see the tax deduction details of user &#x27;B&#x27; by tampering his/her customer id &#x27;b&#x27;</span></li></ul><ul id="acd19e5e-8ef3-47b5-9e40-5e971b869cb2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check parameter tampering for increasing and decreasing interest rate, interest amount, and tax refund</span></li></ul><ul id="16de5acb-a8ed-433f-8708-a465e4c4d29c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user &#x27;A&#x27; can download the TDS details of user &#x27;B’</span></li></ul></details></li></ul><ul id="ec40f72e-d140-430e-a6c5-a72c2bcdf54a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user &#x27;A&#x27; can request for the cheque book behalf of user ‘B’.</span></li></ul><ul id="b2c0c999-0ba7-4935-ac7c-bde75fe5c471" class="toggle"><li><details open=""><summary>Fixed Deposit Account Testing</summary><ul id="8d9217d0-40f8-4c84-8b8b-1bc9eb8fc642" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if is it possible for user &#x27;A&#x27; to open FD account behalf of user &#x27;B&#x27;</span></li></ul><ul id="70535ef1-4735-446c-acea-920523cbe05a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if Can user open FD account with the more amount than the current account balance</span></li></ul></details></li></ul><ul id="55b3ab75-04fb-4d0b-95fb-480165920a55" class="toggle"><li><details open=""><summary>Stopping Payment on basis of cheque/date range</summary><ul id="638a9220-253f-4733-85e9-2bc19478573f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Can user &#x27;A&#x27; stop the payment of user &#x27;B&#x27; via cheque number</span></li></ul><ul id="92192772-6caa-4b52-a273-8675cfc943f2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Can user &#x27;A&#x27; stop the payment on basis of date range for user &#x27;B’</span></li></ul></details></li></ul><ul id="d9893670-eca3-4a13-9ddb-99d19cbca070" class="toggle"><li><details open=""><summary>Status Enquiry Testing</summary><ul id="af061ba6-ae1d-43f7-80e8-79f0846f860d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Can user &#x27;A&#x27; view the status enquiry of user &#x27;B&#x27;</span></li></ul><ul id="99c67143-8cc0-4ebf-ac4c-0f0060e63c9e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Can user &#x27;A&#x27; modify the status enquiry of user &#x27;B&#x27;</span></li></ul><ul id="1032706a-08cd-42a7-b712-17816a871fc7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Can user &#x27;A&#x27; post and enquiry behalf of user &#x27;B&#x27; from his own account</span></li></ul></details></li></ul><ul id="2783c777-116d-4c39-a78c-e936192b0b1e" class="toggle"><li><details open=""><summary>Fund transfer testing</summary><ul id="50669c1c-79a4-4a07-82f8-1d4ce1705c1a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Is it possible to transfer funds to user &#x27;C&#x27; instead of user &#x27;B&#x27; from the user &#x27;A&#x27; which was intended to transfer from user &#x27;A&#x27; to user &#x27;B&#x27;</span></li></ul><ul id="12115ce8-a705-44f0-9c85-0c6f44286f99" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Can fund transfer amount be manipulated?</span></li></ul><ul id="a3f866f5-2bf0-437c-a644-e784dd137cb1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Can user &#x27;A&#x27; modify the payee list of user &#x27;B&#x27; by parameter manipulation using his/her own account</span></li></ul><ul id="7718cc78-3ef6-4564-a754-3e2fdf11c9b1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Is it possible to add payee without any proper validation in user &#x27;A&#x27; &#x27;s own account or to user &#x27;B&#x27; &#x27;s account</span></li></ul></details></li></ul><ul id="53caf635-4a42-49fd-96b1-2643a85e8efe" class="toggle"><li><details open=""><summary>Schedule transfer testing</summary><ul id="bdd74a8a-aeea-4b81-a476-9654ab4f01af" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Can user &#x27;A&#x27; view the schedule transfer of user &#x27;B&#x27;</span></li></ul><ul id="7479a407-60bb-4741-9e1f-05f6da3fcfa0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Can user &#x27;A&#x27; change the details of schedule transfer for user &#x27;B’</span></li></ul></details></li></ul><ul id="7ec79db0-afa8-4744-9d5c-f2e1c45e5298" class="toggle"><li><details open=""><summary>Testing of fund transfer via NEFT</summary><ul id="9aafb7b9-7c0e-4ffd-bc85-65825277c582" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Amount manipulation via NEFT transfer</span></li></ul><ul id="8a872f4d-608c-4caa-b08c-94f71b91bc6e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user &#x27;A&#x27; can view the NEFT transfer details of user &#x27;B’</span></li></ul></details></li></ul><ul id="705eb2a1-2459-4939-988a-86421cb31ea7" class="toggle"><li><details open=""><summary>Testing for Bill Payment</summary><ul id="0ed69821-c11b-4254-8d41-af2de574c4b7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user can register payee without any checker approval</span></li></ul><ul id="e60dc448-85a2-4a95-ba32-790cac4abbac" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user &#x27;A&#x27; can view the pending payments of user &#x27;B&#x27;</span></li></ul><ul id="805d20ee-3df8-4aa5-9cff-42c7ee735505" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if user &#x27;A&#x27; can view the payment made details of user &#x27;B&#x27;</span></li></ul></details></li></ul></details></li></ul><ul id="d3c3a1ae-72a7-4688-a55a-fae799c137ea" class="toggle"><li><details open=""><summary><strong>Open Redirection Testing</strong></summary><ul id="d4f1ee88-da34-419a-baaa-79bccc052737" class="toggle"><li><details open=""><summary>Common injection parameters</summary><pre id="aceeda25-1599-4f53-9942-76343a2fd870" class="code"><code>/{payload}
+?next={payload}
+?url={payload}
+?target={payload}
+?rurl={payload}
+?dest={payload}
+?destination={payload}
+?redir={payload}
+?redirect_uri={payload}
+?redirect_url={payload}
+?redirect={payload}
+/redirect/{payload}
+/cgi-bin/redirect.cgi?{payload}
+/out/{payload}
+/out?{payload}
+?view={payload}
+/login?to={payload}
+?image_url={payload}
+?go={payload}
+?return={payload}
+?returnTo={payload}
+?return_to={payload}
+?checkout_url={payload}
+?continue={payload}
+?return_path={payload}</code></pre></details></li></ul><ul id="ccef19e9-261c-4149-a09b-cbc21529fc9d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Use burp &#x27;find&#x27; option in order to find parameters such as URL, red, redirect, redir, origin, redirect_uri, target etc</span></li></ul><ul id="13022b92-af00-4a02-b745-91d77d987c58" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check the value of these parameter which may contain a URL</span></li></ul><ul id="590f2b4c-2096-4bd9-bb2d-4a70f540d189" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Change the URL value to <a href="http://www.chintan.com/">www.tushar.com</a> and check if gets redirected or not</span></li></ul><ul id="4be085ed-a965-4ddc-b7a7-42645890a28d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try Single Slash and url encoding </span></li></ul><ul id="89ed92ee-155a-46c2-80f7-1fa25d5abb42" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Using a whitelisted domain or keyword</span></li></ul><ul id="07baaa25-a344-4e9b-b613-913ea372f68d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Using // to bypass http blacklisted keyword</span></li></ul><ul id="4377c5c8-ce9d-4121-90a8-ebd724662832" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Using https: to bypass // blacklisted keyword</span></li></ul><ul id="70316d05-b9d8-4dd6-93e7-363b99db7ef3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Using \\ to bypass // blacklisted keyword</span></li></ul><ul id="06e83568-8b14-4e3a-a0d2-2892f596b914" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Using \/\/ to bypass // blacklisted keyword</span></li></ul><ul id="4dd55fd7-2416-4fd9-b0b5-2af530a3643d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Using null byte %00 to bypass blacklist filter</span></li></ul><ul id="981fcd22-61a9-43c7-812c-bb9aae313b71" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Using ° symbol to bypass</span></li></ul></details></li></ul><ul id="fd8f8842-466b-457f-9b42-19badc9fd07e" class="toggle"><li><details open=""><summary><strong>Host Header Injection</strong></summary><ul id="9bc710e6-ba31-43e5-b656-5a8e8958457c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Supply an arbitrary Host header</span></li></ul><ul id="38ef3174-5652-48e0-ab42-5977db08f182" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for flawed validation</span></li></ul><ul id="bc0bda33-49c9-4c82-b4a4-07b44c8a79d5" class="toggle"><li><details open=""><summary>Send ambiguous requests</summary><ul id="d470bc94-05f5-4c64-b826-0b23514d6feb" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Inject duplicate Host headers</span></li></ul><ul id="6f25010b-6b47-42c0-b4a7-4277bb527c20" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Supply an absolute URL</span></li></ul><ul id="0b49335e-2b2a-4178-94e6-16271ea6ce6e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Add line wrapping</span></li></ul></details></li></ul><ul id="22eec6f5-2f2a-4288-9c0b-dd7c63165397" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Inject host override headers</span></li></ul></details></li></ul><ul id="0b4f887f-db04-450a-99b9-3e9c803e515d" class="toggle"><li><details open=""><summary><strong>SQL Injection Testing</strong></summary><ul id="fc28d351-ecb7-42be-8425-12995185f3bb" class="toggle"><li><details open=""><summary>Entry point detection</summary><ul id="56cc218f-a4f8-4666-b91a-272b09290171" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Simple characters</span></li></ul><ul id="d25bc639-0852-4bd5-b1c4-1f07d5f5f9a1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Multiple encoding</span></li></ul><ul id="622c1975-1d68-4a94-91d7-321617b9897e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Merging characters</span></li></ul><ul id="d711e3e2-bd45-4489-b918-d1b0fefd9b3f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Logic Testing</span></li></ul><ul id="8960a270-a46a-41e8-b831-1c4859e49484" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Weird characters</span></li></ul></details></li></ul><ul id="dee89507-811c-4642-bb89-175eb54942d4" class="toggle"><li><details open=""><summary>Use SQLmap to identify vulnerabile parameters</summary><ul id="0921b602-6f7d-4c3a-9961-00affdfe5a8f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Fill form in browser GUI submit it normally</span></li></ul><ul id="8f3a4e57-7223-48f9-aef2-aa1497b08eb8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Go to history tab in burpsuite and find the relevent request</span></li></ul><ul id="a1ec707d-1033-4890-b7c6-857580984b59" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Right click and select the option &quot;copy to file&quot;</span></li></ul><ul id="2e096c9e-84a0-411a-8cbf-1546b01dfb80" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Save file as anyname.txt</span></li></ul><ul id="39e7b7e5-16ab-433e-9e61-22b7442dbc37" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">SQLmap command to run</span></li></ul><ul id="4cd3b568-27dd-4f9d-8ec4-8d779d1d139c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">python <a href="http://sqlmap.py/">sqlmap.py</a> r ~/Desktop/textsqli.txt proxy= <a href="http://127.0.0.1:8080/">http://127.0.0.1:8080</a></span></li></ul></details></li></ul><ul id="7117119a-ce16-4e0e-b728-7d8bd6f0a12b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Run SQL injection scanner on all requests</span></li></ul><ul id="f187bcf9-8e96-4346-8e33-6f24f6866a30" class="toggle"><li><details open=""><summary>Bypassing WAF</summary><ul id="1536ccdf-3b2a-45eb-9553-d84a1b1d3f24" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Using Null byte before SQL query</span></li></ul><ul id="0085213f-daab-4f91-a4f9-0db3bdcf156b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Using SQL inline comment sequence</span></li></ul><ul id="a9ca314b-6daa-4900-908d-92b01933ce40" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">URL encoding</span></li></ul><ul id="57b876bd-db19-4fa9-8073-3eb35de6eac4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Changing Cases (uppercase/lowercase)</span></li></ul><ul id="9faddae9-6b54-4eb7-9ba2-f8ebabd1d9f0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Use SQLMAP tamper scripts</span></li></ul></details></li></ul><ul id="ea23748e-5931-4127-b149-30a5a2e35513" class="toggle"><li><details open=""><summary>Time Delays</summary><pre id="47c0f93a-240e-411d-a2bd-85be2d9d5e51" class="code"><code>      Oracle 	      dbms_pipe.receive_message((&#x27;a&#x27;),10)
+      
+      Microsoft 	  WAITFOR DELAY &#x27;0:0:10&#x27;
+      
+      PostgreSQL 	  SELECT pg_sleep(10)
+      
+      MySQL 	      SELECT sleep(10)</code></pre></details></li></ul><ul id="1523b953-3afc-47e9-8633-f0fa5f6fa808" class="toggle"><li><details open=""><summary>Conditional Delays</summary><pre id="e7e555b3-1570-4d4b-8883-342d063a536d" class="code"><code>      Oracle 	      SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN &#x27;a&#x27;||dbms_pipe.receive_message((&#x27;a&#x27;),10) ELSE NULL END FROM dual
+      
+      Microsoft 	  IF (YOUR-CONDITION-HERE) WAITFOR DELAY &#x27;0:0:10&#x27;
+      
+      PostgreSQL 	  SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN pg_sleep(10) ELSE pg_sleep(0) END
+      
+      MySQL 	      SELECT IF(YOUR-CONDITION-HERE,sleep(10),&#x27;a&#x27;)</code></pre></details></li></ul></details></li></ul><ul id="b22ab5f3-cd35-45b2-9d68-2f97b38b6bd4" class="toggle"><li><details open=""><summary><strong>Cross-Site Scripting Testing</strong></summary><ul id="7a7fd2ad-b607-46fa-a17d-ee8b1ea49906" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try XSS using QuickXSS tool by theinfosecguy</span></li></ul><ul id="2f7b0def-4b1d-4562-b039-ebe7fd2e7864" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Upload file using &#x27;&quot;&gt;&lt;img src=x onerror=alert(document.domain)&gt;.txt</span></li></ul><ul id="760a47e9-261c-4d4b-bb38-1666a36b74c4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">If script tags are banned, use &lt;h1&gt; and other HTML tags</span></li></ul><ul id="271cb3c3-48ab-4f75-9548-d07f5b7e331e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">If output is reflected back inside the JavaScript as a value of any variable just use alert(1)</span></li></ul><ul id="cb09633d-3f5e-4541-839d-438bdb816004" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">if &quot; are filtered then use this payload /&gt;&lt;img src=d onerror=confirm(/tushar/);&gt;</span></li></ul><ul id="f23d81ef-d126-4aa1-ac53-1150ec4bf516" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Upload a JavaScript using Image file</span></li></ul><ul id="7bac69a7-40fc-44fc-8861-e01d0b9692a4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Unusual way to execute your JS payload is to change method from POST to GET. It bypasses filters sometimes</span></li></ul><ul id="72293a99-4011-4c5d-8669-814d74010a98" class="toggle"><li><details open=""><summary>Tag attribute value</summary><ul id="a92eb4f2-c023-4323-97ab-9b92bee29328" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Input landed -&lt;input type=”text” name=”state” value=”INPUT_FROM_ USER”&gt;</span></li></ul><ul id="68feb0db-c3df-412d-a31f-3fe335099aeb" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Payload to be inserted -“ onfocus=”alert(document.cookie)&quot;</span></li></ul></details></li></ul><ul id="8d4ed3e6-7923-472e-86b4-afbbd43c64d7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Syntax Encoding payload “%3cscript%3ealert(document.cookie)%3c/script%3e&quot;</span></li></ul><ul id="97cb17ca-5c90-4351-90c5-0eb9aa0f3fae" class="toggle"><li><details open=""><summary>XSS filter evasion</summary><ul id="5d23db08-d1d8-4763-b379-88e353325ed5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">&lt; and &gt; can be replace with html entities &amp;lt; and &amp;gt;</span></li></ul><ul id="35ca7540-6a42-437e-981e-0d966a4dfd2b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">You can try an XSS polyglot.Eg:-javascript:/<em>-&gt;&lt;/title&gt;&lt;/style&gt;&lt;/textarea&gt;&lt;/script&gt;&lt;/xmp&gt;&lt;svg/onload=&#x27;+/&quot;/+/onmouseover=1/+/[</em>/[]/+alert(1)//&#x27;&gt;</span></li></ul></details></li></ul><ul id="1065af03-20b6-4702-875f-92e19789fe9b" class="toggle"><li><details open=""><summary>XSS Firewall Bypass</summary><ul id="9972e127-513f-4ef6-8763-c702b012c0c4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if the firewall is blocking only lowercase</span></li></ul><ul id="e207fef9-2be1-4833-ba4a-71ef31755ea0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try to break firewall regex with the new line(\r\n)</span></li></ul><ul id="0e9a7b51-9089-45b4-8377-d7303ee68a4c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try Double Encoding</span></li></ul><ul id="3f1dfd9d-6e7e-4937-8d35-31ca40f072c8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Testing for recursive filters</span></li></ul><ul id="2b141899-13af-48fb-aa26-76569b9c1f52" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Injecting anchor tag without whitespaces</span></li></ul><ul id="ec6fe441-40c3-4abb-a5ed-ac093c65cc5f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try to bypass whitespaces using Bullet</span></li></ul><ul id="4b4cd398-ff02-4dc4-bb67-d0a63ec0986f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try to change request method</span></li></ul></details></li></ul></details></li></ul><ul id="8b14536d-8128-405e-a404-58666f61cd13" class="toggle"><li><details open=""><summary><strong>CSRF Testing</strong></summary><ul id="96b51516-2abe-437e-8496-c43e505534ef" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Validation of CSRF token depends on request method</span></li></ul><ul id="c843cc52-40e9-4299-adca-237e732a5887" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Validation of CSRF token depends on token being present</span></li></ul><ul id="d968b8bb-886f-447e-a0c1-850846b795b9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">CSRF token is not tied to the user session</span></li></ul><ul id="5a6f51df-1311-4387-af2d-277182fe3313" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">CSRF token is tied to a non-session cookie</span></li></ul><ul id="3265d83b-d2fc-4762-bf20-1f6f75545eb0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Validation of Referer depends on header being present</span></li></ul></details></li></ul><ul id="75e2d813-723b-44e7-bc78-fb3b1d44b14b" class="toggle"><li><details open=""><summary><strong>SSO Vulnerabilities</strong></summary><ul id="ddf30489-5f52-4e6b-9f25-cabd60697338" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">If internal.company.com Redirects You To SSO e.g. auth.company.com, Do FUZZ
+On Internal.company.com</span></li></ul><ul id="06b75442-99a6-4ca9-b2e9-71fafe40e359" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">If company.com/internal Redirects You To SSO e.g. Google login, Try To Insert
+public Before internal e.g. company.com/public/internal To Gain Access Internal</span></li></ul><ul id="34a71de8-0c58-4b09-a976-117f241eda33" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try To Craft SAML Request With Token And Send It To The Server And Figure
+Out How Server Interact With This</span></li></ul><ul id="cc81259f-5ded-4a5f-b26d-0e6b780f972f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">If There Is AssertionConsumerServiceURL In Token Request Try To Insert Your
+Domain e.g. http://me.com As Value To Steal The Token</span></li></ul><ul id="bd3534c8-c4dd-49ba-b2e2-fb4c84d2b9bf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">If There Is AssertionConsumerServiceURL In Token Request Try To Do FUZZ
+On Value Of AssertionConsumerServiceURL If It Is Not Similar To Origin</span></li></ul><ul id="3c51e031-74e5-45c3-a2f6-e38b9c7aebf5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">If There Is Any UUID, Try To Change It To UUID Of Victim Attacker e.g. Email Of
+Internal Employee Or Admin Account etc</span></li></ul><ul id="4126576d-a5af-4632-a32c-92d91bdc3846" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try To Figure Out If The Server Vulnerable To XML Signature Wrapping OR Not?</span></li></ul><ul id="cca3741a-d1e1-40cd-a5ea-395f0eeefdc1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try To Figure Out If The Server Checks The Identity Of The Signer OR Not?</span></li></ul><ul id="a7726598-28fe-4b7f-b96d-9c7f09555634" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try To Inject XXE Payloads At The Top Of The SAML Response</span></li></ul><ul id="39e0f2fa-7aef-45cd-b3ed-37553d48aa81" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try To Inject XSLT Payloads Into The Transforms Element As A Child
+Node Of The SAML Response</span></li></ul><ul id="bd3af173-c2ce-4d64-991a-02f2abf45c11" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">If Victim Can Accept Tokens Issued By The Same Identity Provider That Services
+Attacker, So You Can Takeover Victim Account</span></li></ul><ul id="995e5f71-44e4-4254-869a-26e09c5df202" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">While Testing SSO Try To search In Burp Suite About URLs In Cookie Header e.g.
+Host=IP; If There Is Try To Change IP To Your IP To Get SSRF</span></li></ul></details></li></ul><ul id="83c0fd0d-ed2d-43d1-965d-797c4ef0aef9" class="toggle"><li><details open=""><summary><strong>XML Injection Testing</strong></summary><ul id="d44ba32e-a0b1-4310-be49-69dab2b99ef6" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Change the content type to text/xml then insert below code. Check via repeater</span></li></ul><pre id="ea3949bd-965b-4d27-aa89-02302c779bc6" class="code"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO 8859 1&quot;?&gt;
+&lt;!DOCTYPE tushar [
+&lt;!ELEMENT tushar ANY
+&lt;!ENTITY xxe SYSTEM &quot;file:///etc/passwd&quot; &gt;]&gt;&lt;tushar&gt;&amp;xxe;&lt;/
+&lt;!ENTITY xxe SYSTEM &quot;file:///etc/hosts&quot; &gt;]&gt;&lt;tushar&gt;&amp;xxe;&lt;/
+&lt;!ENTITY xxe SYSTEM &quot;file:///proc/self/cmdline&quot; &gt;]&gt;&lt;tushar&gt;&amp;xxe;&lt;/
+&lt;!ENTITY xxe SYSTEM &quot;file:///proc/version&quot; &gt;]&gt;&lt;tushar&gt;&amp;xxe;&lt;/</code></pre><ul id="a962ada1-82cd-48f2-94ea-539f904fb65d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Blind XXE with out-of-band interaction</span></li></ul></details></li></ul><ul id="ec5aa391-a95d-4eaa-9d11-5efdd9b3f30b" class="toggle"><li><details open=""><summary><strong>Cross-origin resource sharing (CORS)</strong></summary><ul id="35dfa0a7-e680-4245-8b26-a6b692dc9e5e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Errors parsing Origin headers</span></li></ul><ul id="b222a075-d0ba-4f3b-8b2e-646fb10bd4d6" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Whitelisted null origin value</span></li></ul></details></li></ul><ul id="ef0677bd-f8cc-40d9-a0f1-9e1ae9ff74d1" class="toggle"><li><details open=""><summary><strong>Server-side request forgery (SSRF)</strong></summary><ul id="19179d09-510d-4b57-8251-217d8884ee5d" class="toggle"><li><details open=""><summary>Common injection parameters</summary><pre id="b95051c6-abf6-44da-8647-09cb9d9341be" class="code"><code>&quot;access=&quot;, 
+&quot;admin=&quot;, 
+&quot;dbg=&quot;, 
+&quot;debug=&quot;, 
+&quot;edit=&quot;, 
+&quot;grant=&quot;, 
+&quot;test=&quot;, 
+&quot;alter=&quot;, 
+&quot;clone=&quot;, 
+&quot;create=&quot;, 
+&quot;delete=&quot;, 
+&quot;disable=&quot;, 
+&quot;enable=&quot;, 
+&quot;exec=&quot;, 
+&quot;execute=&quot;, 
+&quot;load=&quot;, 
+&quot;make=&quot;, 
+&quot;modify=&quot;, 
+&quot;rename=&quot;, 
+&quot;reset=&quot;, 
+&quot;shell=&quot;, 
+&quot;toggle=&quot;, 
+&quot;adm=&quot;, 
+&quot;root=&quot;, 
+&quot;cfg=&quot;,
+&quot;dest=&quot;, 
+&quot;redirect=&quot;, 
+&quot;uri=&quot;, 
+&quot;path=&quot;, 
+&quot;continue=&quot;, 
+&quot;url=&quot;, 
+&quot;window=&quot;, 
+&quot;next=&quot;, 
+&quot;data=&quot;, 
+&quot;reference=&quot;, 
+&quot;site=&quot;, 
+&quot;html=&quot;, 
+&quot;val=&quot;, 
+&quot;validate=&quot;, 
+&quot;domain=&quot;, 
+&quot;callback=&quot;, 
+&quot;return=&quot;, 
+&quot;page=&quot;, 
+&quot;feed=&quot;, 
+&quot;host=&quot;, 
+&quot;port=&quot;, 
+&quot;to=&quot;, 
+&quot;out=&quot;,
+&quot;view=&quot;, 
+&quot;dir=&quot;, 
+&quot;show=&quot;, 
+&quot;navigation=&quot;, 
+&quot;open=&quot;,
+&quot;file=&quot;,
+&quot;document=&quot;,
+&quot;folder=&quot;,
+&quot;pg=&quot;,
+&quot;php_path=&quot;,
+&quot;style=&quot;,
+&quot;doc=&quot;,
+&quot;img=&quot;,
+&quot;filename=&quot;</code></pre></details></li></ul><ul id="974be065-1afd-4240-9b5f-2490f0667ad1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Try basic localhost payloads</span></li></ul><ul id="83c50d12-e2e7-4026-831a-210bb79f8a0e" class="toggle"><li><details open=""><summary>Bypassing filters</summary><ul id="3aad52d8-e950-42a9-81ba-b726e3d6e06b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypass using HTTPS</span></li></ul><ul id="de5e321f-1ba1-4777-8a9a-acec30c21b46" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypass with [::]</span></li></ul><ul id="66f873e3-6960-4202-9f71-5c45be850014" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypass with a domain redirection</span></li></ul><ul id="713c4888-38c0-47c3-a1b5-4f1671202370" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypass using a decimal IP location</span></li></ul><ul id="f17437dc-4435-4d81-9cbd-193f6ccffe03" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypass using IPv6/IPv4 Address Embedding</span></li></ul><ul id="b2fa6f65-8a91-4198-ab32-c68a65d9c71a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypass using malformed urls</span></li></ul><ul id="0e67a789-89d3-476b-b281-628d9ae0ed5f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypass using rare address(short-hand IP addresses by dropping the zeros)</span></li></ul><ul id="38b81911-ff00-49e7-a62d-5ae972073e07" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypass using enclosed alphanumerics</span></li></ul></details></li></ul><ul id="a7dd50e4-bf5b-4ed7-996d-231248ab9f52" class="toggle"><li><details open=""><summary>Cloud Instances</summary><ul id="c9143cfd-e74c-482a-b706-99abf2e3da64" class="toggle"><li><details open=""><summary>AWS</summary><pre id="c201d5c7-b48b-46c3-9458-d78840e7041f" class="code"><code>http://instance-data
+http://169.254.169.254
+http://169.254.169.254/latest/user-data
+http://169.254.169.254/latest/user-data/iam/security-credentials/[ROLE NAME]
+http://169.254.169.254/latest/meta-data/
+http://169.254.169.254/latest/meta-data/iam/security-credentials/[ROLE NAME]
+http://169.254.169.254/latest/meta-data/iam/security-credentials/PhotonInstance
+http://169.254.169.254/latest/meta-data/ami-id
+http://169.254.169.254/latest/meta-data/reservation-id
+http://169.254.169.254/latest/meta-data/hostname
+http://169.254.169.254/latest/meta-data/public-keys/
+http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key
+http://169.254.169.254/latest/meta-data/public-keys/[ID]/openssh-key
+http://169.254.169.254/latest/meta-data/iam/security-credentials/dummy
+http://169.254.169.254/latest/meta-data/iam/security-credentials/s3access
+http://169.254.169.254/latest/dynamic/instance-identity/document</code></pre></details></li></ul><ul id="12165100-3eb4-4c81-a710-5288bdb043c3" class="toggle"><li><details open=""><summary>Google Cloud</summary><pre id="64c530b9-6181-4ec5-8f0a-ec6f6d917db5" class="code"><code>http://169.254.169.254/computeMetadata/v1/
+http://metadata.google.internal/computeMetadata/v1/
+http://metadata/computeMetadata/v1/
+http://metadata.google.internal/computeMetadata/v1/instance/hostname
+http://metadata.google.internal/computeMetadata/v1/instance/id
+http://metadata.google.internal/computeMetadata/v1/project/project-id</code></pre></details></li></ul><ul id="71879151-9b40-454e-aeb2-1d6b97c4f99d" class="toggle"><li><details open=""><summary>Digital Ocean</summary><pre id="4191ed6a-0745-4f35-ad5c-26774e1c2910" class="code"><code>curl http://169.254.169.254/metadata/v1/id
+http://169.254.169.254/metadata/v1.json
+http://169.254.169.254/metadata/v1/ 
+http://169.254.169.254/metadata/v1/id
+http://169.254.169.254/metadata/v1/user-data
+http://169.254.169.254/metadata/v1/hostname
+http://169.254.169.254/metadata/v1/region
+http://169.254.169.254/metadata/v1/interfaces/public/0/ipv6/address</code></pre></details></li></ul><ul id="9f282154-c1d8-4d63-bdd1-9aac1d8b20ee" class="toggle"><li><details open=""><summary>Azure</summary><pre id="ad6fac10-d88f-46be-9f21-d6d9ad341d06" class="code code-wrap"><code>http://169.254.169.254/metadata/v1/maintenance
+http://169.254.169.254/metadata/instance?api-version=2017-04-02
+http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&amp;format=text</code></pre></details></li></ul></details></li></ul><ul id="76587b3f-f04d-4349-afab-42038a41f359" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bypassing via open redirection</span></li></ul></details></li></ul><ul id="536f48cf-0fc8-4a0e-aa54-ec8223e08aca" class="toggle"><li><details open=""><summary><strong>File Upload Testing</strong></summary><ul id="216816a6-3deb-48fe-a3fa-9608668fe67b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">upload the malicious file to the archive upload functionality and observe how the application responds</span></li></ul><ul id="96258609-e278-4460-8d01-4f42e68cfaa2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">upload a file and change its path to overwrite an existing system file</span></li></ul><ul id="52c7253a-77b3-478d-a9da-ca565024f703" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Large File Denial of Service</span></li></ul><ul id="8f30bdf9-dcd8-45ed-867b-d923dae20770" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Metadata Leakage</span></li></ul><ul id="9f10704e-bf23-4acc-b12f-8cfed868566b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">ImageMagick Library Attacks</span></li></ul><ul id="cf297004-0031-4985-8ab4-3495bf79d4a1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Pixel Flood Attack</span></li></ul><ul id="d6a35597-6346-47ee-b941-4aa686cdc5c3" class="toggle"><li><details open=""><summary>Bypasses</summary><ul id="295ba507-b2db-45fc-b56b-813ae4fa39bc" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Null Byte (%00) Bypass</span></li></ul><ul id="7a20e124-3504-43aa-9685-e8a7a686a776" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Content-Type Bypass</span></li></ul><ul id="eaec46a4-f24a-4dd0-b8ae-aeaf0f9dd0d2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Magic Byte Bypass</span></li></ul><ul id="191e7a1e-40c4-4cde-ae48-68f377e826b4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Client-Side Validation Bypass</span></li></ul><ul id="130aa902-d21e-49a0-8937-d334c1d0b60c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Blacklisted Extension Bypass</span></li></ul><ul id="911083b1-7758-4bdf-94cc-1d9ad7180812" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Homographic Character Bypass</span></li></ul></details></li></ul></details></li></ul><ul id="1e52bb01-8797-44dc-8721-150bbb74c2f2" class="toggle"><li><details open=""><summary><strong>CAPTCHA Testing</strong></summary><ul id="abe883e3-0632-4990-891a-39555fabb723" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Missing Captcha Field Integrity Checks</span></li></ul><ul id="e92cbe6c-a73b-4dc4-916a-20de064f0777" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">HTTP Verb Manipulation</span></li></ul><ul id="a8d5a71c-deb8-4bac-b0c7-0798581c6dbd" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Content Type Conversion</span></li></ul><ul id="0c475643-d4fd-4bfe-bd98-5512f705d853" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Reusuable Captcha</span></li></ul><ul id="d2e06d0c-c4f8-49d2-83a9-e0907d61de19" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if captcha is retrievable with the absolute path such as
+<a href="http://www.chintan.com/internal/captcha/images/24.png">www.tushar.com/internal/captcha/images/24.png</a></span></li></ul><ul id="5bf9eb18-af05-4084-aeb2-426007a2b3a0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check for the server side validation for CAPTCHA.Remove captcha block from GUI using firebug addon and submit request to the server</span></li></ul><ul id="bcdc9547-5ae6-4416-8e13-a379ebda0f1a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if image recognition can be done with OCR tool?</span></li></ul></details></li></ul><ul id="e03eaa46-a1df-4745-819e-d827e91fc614" class="toggle"><li><details open=""><summary><strong>JWT Token Testing</strong></summary><ul id="875acc2b-a6de-430c-8c24-4b1651761305" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Brute-forcing secret keys</span></li></ul><ul id="f07640c1-ab96-4201-80d5-3a3cee75340f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Signing a new token with the “none” algorithm</span></li></ul><ul id="c5eed72a-f585-4cad-8902-11b2f9a02aa4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Changing the signing algorithm of the token (for fuzzing purposes)</span></li></ul><ul id="2059a3ae-d840-4960-a041-5bdf515d7908" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Signing the asymmetrically-signed token to its symmetric algorithm match (when you have the original public key)</span></li></ul></details></li></ul><ul id="1d4ec185-aeec-48bc-81a7-9259fd208601" class="toggle"><li><details open=""><summary><strong>Websockets Testing</strong></summary><ul id="37980eed-0e31-46ba-8627-c39bda618812" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Intercepting and modifying WebSocket messages</span></li></ul><ul id="39173f4d-0a14-4b22-810a-f5be6cefd025" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Websockets MITM attempts</span></li></ul><ul id="00784e9b-d59b-46d8-9649-7ec9d918fb58" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Testing secret header websocket</span></li></ul><ul id="5cf8f3c6-f08d-48d8-aec5-c27ceeee1fb4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Content stealing in websockets</span></li></ul><ul id="22cad0bb-9a4c-4469-aaa7-9f5791ab232c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Token authentication testing in websockets</span></li></ul></details></li></ul><ul id="21239f91-0582-4b6c-b44a-4c491f9b7921" class="toggle"><li><details open=""><summary><strong>GraphQL Vulnerabilities Testing</strong></summary><ul id="40a37a28-09ea-475d-8abd-3b80089645fe" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Inconsistent Authorization Checks</span></li></ul><ul id="ad9cdf89-a1ac-43b6-a2de-3f17b1628765" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Missing Validation of Custom Scalars</span></li></ul><ul id="4608cecf-5c6e-4052-9dca-cf80caf2e511" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Failure to Appropriately Rate-limit</span></li></ul><ul id="041fc19b-6aff-4838-b894-69a4426ce1c0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Introspection Query Enabled/Disabled</span></li></ul></details></li></ul><ul id="91b76eed-92cb-4aa8-a948-36b4efe9c10f" class="toggle"><li><details open=""><summary><strong>WordPress Common Vulnerabilities</strong></summary><ul id="100b3d5c-3d17-4b24-96bc-3377f1cd9230" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">XSPA in wordpress</span></li></ul><ul id="c4be109b-e8cb-433f-b588-af0337101c9d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Bruteforce in wp-login.php</span></li></ul><ul id="528361d0-6c96-4ce3-8385-848b36e38f20" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Information disclosure wordpress username</span></li></ul><ul id="8c4aeb9c-a805-4363-9b2e-7219b119260b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Backup file wp-config exposed</span></li></ul><ul id="0cab80c2-b403-4d1f-ac37-36ee85eca254" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Log files exposed</span></li></ul><ul id="52e0928e-176c-441c-a2e5-96bc57c5dda7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Denial of Service via load-styles.php</span></li></ul><ul id="c6030812-dd0f-4960-882c-1c5c5091b163" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Denial of Service via load-scripts.php</span></li></ul><ul id="659168bc-32b0-4990-b3b5-e32568fb989b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">DDOS using xmlrpc.php</span></li></ul></details></li></ul><ul id="bb073ae1-e194-4fac-aa70-60cdd4055569" class="toggle"><li><details open=""><summary><strong>Denial of Service</strong></summary><ul id="86f3c41c-e233-404b-98bd-8bdaf2045544" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Cookie bomb</span></li></ul><ul id="95059bcd-d3e0-4b8b-8daf-e05819ee3ca1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Pixel flood, using image with a huge pixels</span></li></ul><ul id="431f69e8-65fe-45fd-bcdf-ed16f93292c4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Frame flood, using GIF with a huge frame</span></li></ul><ul id="4ec934c8-44ff-40e3-ba1e-c1c950d054bc" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">ReDoS (Regex DoS)</span></li></ul><ul id="e2b18e9c-571e-4b7e-a827-8a5782df0730" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">CPDoS (Cache Poisoned Denial of Service)</span></li></ul></details></li></ul><ul id="24303503-4c79-40fd-be92-87adfbb88103" class="toggle"><li><details open=""><summary><strong>Other Test Cases (All Categories)</strong></summary><ul id="a55f52f1-bbeb-4713-b361-ecf5058c0306" class="toggle"><li><details open=""><summary>Testing for Role authorization</summary><ul id="761e727c-e1c1-49c6-8c7b-e5adb7d963af" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Check if normal user can access the resources of high privileged users?</span></li></ul><ul id="fbdd6ecc-fbba-4f0a-99b3-8c9a77b62be0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Forced browsing</span></li></ul><ul id="9a57fe37-15a8-4507-9285-e7025322f624" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Insecure direct object reference</span></li></ul><ul id="64698fc1-c1e8-49e4-92d9-797d65230054" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Parameter tampering to switch user account to high privileged user</span></li></ul></details></li></ul><ul id="86f2c120-03c3-4d04-a01e-8ef05b17c97e" class="toggle"><li><details open=""><summary>Check for security headers and at least</summary><ul id="2e8a03d3-6999-4d23-87fb-b64445095ac1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">X Frame Options</span></li></ul><ul id="bc86605f-7b93-48ff-8389-dc911eea13be" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">X-XSS header</span></li></ul><ul id="08de5bd8-f79f-426a-aeab-6e6c342faea9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">HSTS header</span></li></ul><ul id="359c0741-0d50-4b95-9998-7adde563e7c4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">CSP header</span></li></ul><ul id="ca480fb3-868e-455e-ace0-7a17c3d3ce21" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Referrer Policy</span></li></ul><ul id="50435b71-3943-4d22-b54d-882fbad8bb0b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Cache Control</span></li></ul><ul id="195effe3-b302-444f-86be-46d8b1501c6e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Public key pins</span></li></ul></details></li></ul><ul id="04831814-4d32-42b1-9237-9e98679f3cdf" class="toggle"><li><details open=""><summary>Blind OS command injection</summary><ul id="65d25a79-68f1-48f3-a31e-c97fc32a8fbe" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">using time delays</span></li></ul><ul id="038dd6d4-9750-4152-89f4-90734e8ede84" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">by redirecting output</span></li></ul><ul id="da9ed06c-26af-4dd7-8859-5635910ca06a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">with out-of-band interaction</span></li></ul><ul id="98b7db7a-8cce-4617-a6d9-ff69d3d028f9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">with out-of-band data exfiltration</span></li></ul></details></li></ul><ul id="60f5e35a-b343-40a5-8b24-256458c93c21" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Command injection on CSV export (Upload/Download)</span></li></ul><ul id="11773692-7999-4932-99a2-1d3c0e113dd1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">CSV Excel Macro Injection</span></li></ul><ul id="ab964bee-660f-49e0-a607-094648010efd" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">If you find phpinfo.php file, check for the configuration leakage and try to exploit any network vulnerability.</span></li></ul><ul id="7ff905c2-749f-471c-b658-884c86f0525b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Parameter Pollution Social Media Sharing Buttons</span></li></ul><ul id="0da95dd7-4745-42b5-9aa1-04e062511723" class="toggle"><li><details open=""><summary>Broken Cryptography</summary><ul id="1943c473-d903-4bf7-9811-cd04db20de27" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Cryptography Implementation Flaw</span></li></ul><ul id="eaacdf46-c5ae-46b8-949e-ade8843f0509" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Encrypted Information Compromised</span></li></ul><ul id="a5cb4ca2-879c-475e-9f46-47fd663c3d4b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Weak Ciphers Used for Encryption</span></li></ul></details></li></ul><ul id="16c36283-4f3f-4626-92eb-19a53ab20780" class="toggle"><li><details open=""><summary>Web Services Testing</summary><ul id="a571f676-cd99-4bb2-a0a6-c7658d8d3d9e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Test for directory traversal</span></li></ul><ul id="624c8f13-184c-4f50-b07c-38c9bfe8d8fb" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Web services documentation disclosure Enumeration of services, data types, input types boundaries and limits</span></li></ul></details></li></ul></details></li></ul><p id="b16fdf8c-b6e6-4d83-abfd-56077ea0666c" class="">
+</p><p id="9a272658-d63b-44a2-a5db-b43f79003099" class="">
+</p></div></article></body></html>
